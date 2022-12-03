@@ -1,3 +1,4 @@
+import Logo from "../../images/logo.svg";
 import Media from "react-media";
 import { BsCart3, BsFillPersonFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -5,14 +6,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Avatar from "./Avatar";
 
 function Navbar() {
-  const logoUrl = "../../images/logo.svg";
   const queries = {
-    small: "(max-width: 499px)",
+    small: "(max-width: 650px)",
   };
 
   return (
-    <nav className="flex justify-between bg-green-400 py-5 px-4">
-      <div className="flex items-center gap-5">
+    <nav className="flex justify-between py-5 px-4 border-b-2 sm:mx-5 md:mx-10 lg:mx-14">
+      <div className="flex items-center gap-5 md:gap-10 lg:gap-16">
         <Media queries={queries}>
           {(matches) => (
             <>
@@ -21,9 +21,9 @@ function Navbar() {
                   <GiHamburgerMenu size={20} />
                 </button>
               )}
-              {<img src={logoUrl} alt="Logo" className="grow-0" />}
+              {<img src={Logo} alt="Logo" className="grow-0" />}
               {!matches.small && (
-                <ul>
+                <ul className="flex gap-4 text-sm text-project-black-200 lg:gap-7">
                   <li>
                     <a href="#">Collections</a>
                   </li>
@@ -45,12 +45,12 @@ function Navbar() {
           )}
         </Media>
       </div>
-      <div className="flex gap-5">
+      <div className="flex gap-6 pr-2 lg:pr-8 lg:gap-10">
         <button>
-          <BsCart3 size={20} />
+          <BsCart3 size={22} />
         </button>
         <Avatar>
-          <BsFillPersonFill size={20} />
+          <BsFillPersonFill size={22} />
         </Avatar>
       </div>
     </nav>
