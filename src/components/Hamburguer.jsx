@@ -1,11 +1,11 @@
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useDispatch } from "react-redux";
+import { openSidebar } from "../redux/sidebarSlice";
 
-function Hamburguer({ setIsOpenned }) {
-  const handleSideBar = () => {
-    setIsOpenned(true);
-  };
+function Hamburguer() {
+  const dispatch = useDispatch();
   return (
-    <button onClick={handleSideBar}>
+    <button onClick={() => dispatch(openSidebar())}>
       <GiHamburgerMenu size={20} />
     </button>
   );

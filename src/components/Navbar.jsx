@@ -5,7 +5,7 @@ import Categories from "./Categories";
 import Cart from "./Cart";
 import Avatar from "./Avatar";
 
-function Navbar({ setIsOpenned }) {
+function Navbar() {
   const queries = {
     small: "(max-width: 650px)",
   };
@@ -16,7 +16,7 @@ function Navbar({ setIsOpenned }) {
         <Media queries={queries}>
           {({ small }) => (
             <>
-              {small && <Hamburguer setIsOpenned={setIsOpenned} />}
+              {small && <Hamburguer />}
               <img src={Logo} alt="Logo" />
               {!small && (
                 <Categories ulStyle="flex gap-4 text-sm text-project-black-200 lg:gap-7" />
