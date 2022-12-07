@@ -4,6 +4,7 @@ import Media from "react-media";
 import Categories from "./Categories";
 import Cart from "./Cart";
 import Avatar from "./Avatar";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const queries = {
@@ -17,7 +18,9 @@ function Navbar() {
           {({ small }) => (
             <>
               {small && <Hamburguer />}
-              <img src={Logo} alt="Logo" />
+              <Link to="/">
+                <img src={Logo} alt="Logo" />
+              </Link>
               {!small && (
                 <Categories ulStyle="flex gap-4 text-sm text-project-black-200 lg:gap-7" />
               )}

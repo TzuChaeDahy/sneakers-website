@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom";
+
 function Categories({ ulStyle, liStyle }) {
   const categories = [
-    { title: "Collections", path: "#" },
-    { title: "Men", path: "#" },
-    { title: "Women", path: "#" },
-    { title: "About", path: "#" },
-    { title: "Contact", path: "#" },
+    { title: "Collections", path: "/collections" },
+    { title: "Men", path: "/men" },
+    { title: "Women", path: "/women" },
+    { title: "About", path: "/about" },
+    { title: "Contact", path: "/contact" },
   ];
   return (
     <ul className={ulStyle}>
       {categories.map(({ title, path }, index) => {
         return (
           <li key={index} className={liStyle}>
-            <a href={path}>{title}</a>
+            <Link to={path}>{title}</Link>
           </li>
         );
       })}
