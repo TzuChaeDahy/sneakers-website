@@ -1,12 +1,16 @@
-import Navbar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 import SideBar from "../components/SideBar";
+import Cart from "../components/Cart";
+import Profile from "../components/Profile";
 import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
       <SideBar />
-      <Navbar />
+      <NavBar />
+      <Cart />
+      <Profile />
       <Outlet />
     </>
   );

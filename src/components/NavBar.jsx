@@ -2,13 +2,21 @@ import Hamburguer from "./Hamburguer";
 import Logo from "../../images/logo.svg";
 import Media from "react-media";
 import Categories from "./Categories";
-import Cart from "./Cart";
-import Avatar from "./Avatar";
+import CartButton from "./CartButton";
+import ProfileButton from "./ProfileButton";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { closeCart } from "../redux/cartSlice";
+import { closeProfile } from "../redux/profileSlice";
 
 function Navbar() {
+  const dispatch = useDispatch();
   const queries = {
     small: "(max-width: 650px)",
+  };
+  const handleClick = () => {
+    dispatch(closeCart());
+    dispatch(closeProfile());
   };
 
   return (
@@ -18,19 +26,22 @@ function Navbar() {
           {({ small }) => (
             <>
               {small && <Hamburguer />}
-              <Link to="/">
+              <Link to="/" onClick={handleClick}>
                 <img src={Logo} alt="Logo" />
               </Link>
               {!small && (
-                <Categories ulStyle="flex gap-4 text-sm text-project-black-200 lg:gap-7" />
+                <Categories
+                  ulStyle="flex gap-4 text-sm text-project-black-200 lg:gap-7"
+                  hover={true}
+                />
               )}
             </>
           )}
         </Media>
       </div>
       <div className="flex gap-6 px-2 lg:pr-8 lg:gap-10">
-        <Cart />
-        <Avatar />
+        <CartButton />
+        <ProfileButton />
       </div>
     </nav>
   );

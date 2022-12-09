@@ -15,7 +15,6 @@ function Avatar() {
       <button onClick={handleClick}>
         <BsFillPersonFill size={22} />
       </button>
-      {isOpen && <div className="absolute top-20 w-20 h-20 bg-red-500"></div>}
     </>
   );
 }
